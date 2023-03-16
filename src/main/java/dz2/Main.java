@@ -23,6 +23,17 @@ public class Main {
         public IEngine getEngine() {
             return engine;
         }
+        @Override
+        public void start() {
+            getEngine().startEngine();
+            System.out.println(name + " is start");
+        }
+
+        @Override
+        public void stop() {
+            System.out.println(name + " is stop");
+            getEngine().stopEngine();
+        }
         public void setEngine(IEngine engine) {
             this.engine = engine;
         }
@@ -40,16 +51,8 @@ public class Main {
         }
     }
     class LightWeightCar extends Car {
-        @Override
-        public void start() {
-            getEngine().startEngine();
-            System.out.println("LightWeightCar starting");
-        }
-        @Override
-        public void stop() {
-            System.out.println("LightWeightCar is stop");
-            getEngine().stopEngine();
-        }
+
+
         @Override
         void open() {
             System.out.println("LightWeightCar is open");
@@ -61,16 +64,7 @@ public class Main {
 
     }
     class Lorry extends Car {
-        @Override
-        public void start() {
-            getEngine().startEngine();
-            System.out.println("Lorry starting");
-        }
-        @Override
-        public void stop() {
-            System.out.println("Lorry is stop");
-            getEngine().stopEngine();
-        }
+
         @Override
         void open() {
             System.out.println("Lorry is open");
