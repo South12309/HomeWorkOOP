@@ -19,7 +19,6 @@ public class Main {
         private String color;
         private String name;
 
-        abstract void open();
         public IEngine getEngine() {
             return engine;
         }
@@ -33,6 +32,14 @@ public class Main {
         public void stop() {
             System.out.println(name + " is stop");
             getEngine().stopEngine();
+        }
+
+        public void open() {
+            System.out.println(name + " is open");
+        }
+        @Override
+        public void move() {
+            System.out.println(name + " is moving");
         }
         public void setEngine(IEngine engine) {
             this.engine = engine;
@@ -52,26 +59,14 @@ public class Main {
     }
     class LightWeightCar extends Car {
 
-
-        @Override
-        void open() {
-            System.out.println("LightWeightCar is open");
-        }
-        @Override
-        public void move() {
-            System.out.println("LightWeightCar is moving");
+        public LightWeightCar() {
+            super.setName("LightWeightCar");
         }
 
     }
     class Lorry extends Car {
-
-        @Override
-        void open() {
-            System.out.println("Lorry is open");
-        }
-        @Override
-        public void move() {
-            System.out.println("Lorry is moving");
+        public Lorry() {
+            super.setName("Lorry");
         }
 
     }
