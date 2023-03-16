@@ -7,18 +7,23 @@ public class Main {
     interface Stopable {
         void stop();
     }
-    abstract class Car {
-        public Engine engine;
+    interface Startable {
+        void start();
+    }
+    interface IEngine {
+        void startEngine();
+        void stopEngine();
+    }
+    abstract class Car implements Moveable, Stopable, Startable{
+        private IEngine engine;
         private String color;
         private String name;
-        protected void start() {
-            System.out.println("Car starting");
-        }
+
         abstract void open();
-        public Engine getEngine() {
+        public IEngine getEngine() {
             return engine;
         }
-        public void setEngine(Engine engine) {
+        public void setEngine(IEngine engine) {
             this.engine = engine;
         }
         public String getColor() {
@@ -34,23 +39,47 @@ public class Main {
             this.name = name;
         }
     }
-    class LightWeightCar extends Car implements Moveable {
+    class LightWeightCar extends Car {
+        @Override
+        public void start() {
+            getEngine().startEngine();
+            System.out.println("LightWeightCar starting");
+        }
+        @Override
+        public void stop() {
+            System.out.println("LightWeightCar is stop");
+            getEngine().stopEngine();
+        }
         @Override
         void open() {
-            System.out.println("Car is open");
+            System.out.println("LightWeightCar is open");
         }
         @Override
         public void move() {
-            System.out.println("Car is moving");
+            System.out.println("LightWeightCar is moving");
         }
+
     }
-    class Lorry extends Car, Moveable, Stopable {
-        public void move(){
-            System.out.println("Car is moving");
+    class Lorry extends Car {
+        @Override
+        public void start() {
+            getEngine().startEngine();
+            System.out.println("Lorry starting");
         }
-        public void stop(){
-            System.out.println("Car is stop");
+        @Override
+        public void stop() {
+            System.out.println("Lorry is stop");
+            getEngine().stopEngine();
         }
+        @Override
+        void open() {
+            System.out.println("Lorry is open");
+        }
+        @Override
+        public void move() {
+            System.out.println("Lorry is moving");
+        }
+
     }
 
 }
