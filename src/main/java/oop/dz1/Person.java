@@ -1,4 +1,4 @@
-package dz1;
+package oop.dz1;
 
 public class Person {
     String firstName;

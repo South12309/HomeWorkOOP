@@ -1,4 +1,4 @@
-package dz2;
+package oop.dz2;
 
 public class Main {
     interface Moveable {

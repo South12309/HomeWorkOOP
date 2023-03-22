@@ -1,4 +1,4 @@
-package dz3;
+package oop.dz3;
 
 public class Circle  extends Figure{
 
