@@ -19,7 +19,7 @@
 
         <property name="show_sql">true</property>
 
-        <mapping class="ru.gb.sobes.HomeWorkOOP.Lesson_5_Hibernate.Student"/>
+        <mapping class="ru.gb.sobes.HomeWorkOOP.lesson_5_Hibernate.Student"/>
 
     </session-factory>
 </hibernate-configuration>

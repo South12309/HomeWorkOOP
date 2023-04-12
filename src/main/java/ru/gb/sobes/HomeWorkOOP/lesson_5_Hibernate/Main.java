@@ -1,6 +1,4 @@
-package ru.gb.sobes.HomeWorkOOP.Lesson_5_Hibernate;
-
-import org.hibernate.Session;
+package ru.gb.sobes.HomeWorkOOP.lesson_5_Hibernate;
 
 import java.util.List;
 
