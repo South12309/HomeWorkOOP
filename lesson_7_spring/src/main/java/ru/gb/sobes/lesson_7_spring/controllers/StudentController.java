@@ -23,17 +23,25 @@ public class StudentController {
     public List<Student> getALL() {
         return studentService.getAll();
     }
+
     @GetMapping("/{id}")
     public StudentDto getALL(@PathVariable int id) {
         return studentConvertor.entityToDto(studentService.get(id).orElseThrow());
     }
+
     @PostMapping()
-    public StudentDto add(@RequestParam StudentDto studentDto) {
+    public StudentDto add(@RequestBody StudentDto studentDto) {
         return studentConvertor.entityToDto(studentService.add(studentConvertor.dtoToEntity(studentDto)));
     }
-    @PostMapping()
-    public StudentDto update(@RequestParam StudentDto studentDto) {
+
+    @PutMapping()
+    public StudentDto update(@RequestBody StudentDto studentDto) {
         return studentConvertor.entityToDto(studentService.add(studentConvertor.dtoToEntity(studentDto)));
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable int id) {
+        studentService.delete(id);
     }
 
 }
